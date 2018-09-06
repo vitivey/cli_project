@@ -18,7 +18,9 @@ class Search
         #User types 'list' and sees list upcoming events
         puts "What event interests you?"
         puts "Enter number to show details on a specific event, or enter 'exit' to end session."
-        Event.all
+        Event.all.each_with_index do |event, index|
+            puts "#{index+1}. #{event.name} - #{event.date} - #{event.location}"
+        end
     end
 
     def input(event_id)
@@ -27,9 +29,13 @@ class Search
 
     def event_details(event_id) #returns the details of one event
         id=input(event_id)
-        puts Event.all[id]
-        # puts "1. LE BALLET SCHOOL - Thursday 02 August, 2018. 09:00AM - Young Women's Christian Association (YWCA)"
-        # puts "2. T&T Photographic Soci… - Wednesday 29 August, 2018. 07:00PM - Horizons Art Gallery"
+        event=Scraper.event_details(Event.all[id].website)
+        
+        # {:Event= "LE BALLET SCHOOL",
+        # :When= "Thu. 02 AUG, 2018 to Sun. 30 SEP, 2018",
+        # :Phone= "1 (868) 225-2807",
+        # :Website= "https://leballetschooltt.wixsite.com/landingpage",
+        # :Category= "Education , Arts & Culture , Family & Kids"}
     end
 
     def search_results(input) #User enters 1
