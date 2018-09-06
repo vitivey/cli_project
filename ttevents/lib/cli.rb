@@ -1,6 +1,6 @@
 class CLI
 
-    def initialize
+    def self.run
         puts "What's happening around town? Enter 'list' to see a list of events"
         Search.new.search_events
     end
