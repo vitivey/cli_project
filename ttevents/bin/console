@@ -2,20 +2,11 @@
 
 require_relative "../config/environment.rb"
 
-# require "bundler/setup"
-# require "ttevents"
-
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-# (If you use this, don't forget to add pry to your Gemfile!)
-
-# require "pry"
-# Pry.start
+def reload!        #allow enironment to be reloaded if there are any changes to it
+    load_all "lib"
+end
 
 require "irb"
 IRB.start(__FILE__)
 
-def self.reload!        #allow enironment to be reloaded if there are any changes to it
-    load_all "../config/environment.rb"
-end
+
