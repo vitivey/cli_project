@@ -20,9 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-        1. Load the environment (e.g., ruby bin/events)
-        2. Run the gem by typing CLI.run
-        3. Follow the instructions to find events!
+        1. Load the environment (i.e., ruby bin/events)
+        2. Follow the instructions to find events!
 
 
 ## License
